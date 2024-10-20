@@ -1,18 +1,10 @@
-import Chart from 'chart.js/auto';
-import StreamingPlugin from '@robloche/chartjs-plugin-streaming';
 import 'chartjs-adapter-luxon';
-import { StreamingLineChart } from './components/ui/StreamingLineChart';
 import { useCallback, useState } from 'react';
-import zoomPlugin from 'chartjs-plugin-zoom';
 import { Slider } from './components/ui/Slider';
 import { ZoomLevel } from './components/ui/lib';
 
-Chart.register(zoomPlugin);
-Chart.register(StreamingPlugin);
-
 export const App = () => {
   const [count, setCount] = useState(0);
-  const handleDataPointAdded = useCallback(() => setCount((prev) => prev + 1), []);
   const [freeze, setFreeze] = useState(false);
   const toggleFreeze = () => setFreeze((prev) => !prev);
   const arr = Array.from({ length: 20 }, (_v, i) => i);
@@ -51,14 +43,7 @@ export const App = () => {
         <div className="w-full">
           <Slider min={0} max={100} step={1} initialValue={0} onChange={handleSliderChange} />
         </div>
-        {arr.map((i) => (
-          <StreamingLineChart
-            key={i}
-            onDataPointAdded={handleDataPointAdded}
-            freeze={freeze}
-            zoomLevel={zoomLevel}
-          />
-        ))}
+        todo
       </div>
     </div>
   );

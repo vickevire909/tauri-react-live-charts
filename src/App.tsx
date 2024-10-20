@@ -1,32 +1,15 @@
-import 'chartjs-adapter-luxon';
 import { useCallback, useState } from 'react';
 import { Slider } from './components/ui/Slider';
-import { ZoomLevel } from './components/ui/lib';
+import { ChartBuilder, MySciChart } from './components/ui/MySciChart';
+import { chartBuilder, ISciChartSurfaceBase } from 'scichart';
 
 export const App = () => {
   const [count, setCount] = useState(0);
   const [freeze, setFreeze] = useState(false);
   const toggleFreeze = () => setFreeze((prev) => !prev);
   const arr = Array.from({ length: 20 }, (_v, i) => i);
-  const [zoomLevel, setZoomLevel] = useState<ZoomLevel>({ min: 0, max: 2 });
 
-  const calculateZoom = useCallback(
-    (sliderValue: number): ZoomLevel => {
-      const minZoom = 0.002;
-      const maxZoom = 2;
-      const zoomRange = minZoom + (maxZoom - minZoom) * (1 - sliderValue / 100);
-      const center = (zoomLevel.min + zoomLevel.max) / 2;
-      const newYMin = Math.max(0, center - zoomRange / 2);
-      const newYMax = Math.min(100, center + zoomRange / 2);
-      return { min: newYMin, max: newYMax };
-    },
-    [zoomLevel],
-  );
-
-  const handleSliderChange = (newValue: number) => {
-    const newZoomLevel = calculateZoom(newValue);
-    setZoomLevel(newZoomLevel);
-  };
+  const handleSliderChange = (newValue: number) => {};
 
   return (
     <div className="bg-slate-800 text-slate-100">
@@ -43,7 +26,7 @@ export const App = () => {
         <div className="w-full">
           <Slider min={0} max={100} step={1} initialValue={0} onChange={handleSliderChange} />
         </div>
-        todo
+        <MySciChart />
       </div>
     </div>
   );

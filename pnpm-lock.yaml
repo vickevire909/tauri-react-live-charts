@@ -23,6 +23,12 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
+      scichart:
+        specifier: 3.5.687
+        version: 3.5.687
+      scichart-react:
+        specifier: ^0.1.9
+        version: 0.1.9(react@18.3.1)(scichart@3.5.687)
     devDependencies:
       '@eslint/js':
         specifier: ^9.12.0
@@ -1633,6 +1639,15 @@ packages:
 
   scheduler@0.23.2:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
+
+  scichart-react@0.1.9:
+    resolution: {integrity: sha512-U52sXcjHHQ5ztzI+tVlEKrkDxkYYHvQOHYEIhy2aJ/k8iQcy5Kr8iqq3+JN1eBioMg2UzGmIXpVitJQTZrE0Hw==}
+    peerDependencies:
+      react: '>=16.8.0'
+      scichart: '>=3.2.516'
+
+  scichart@3.5.687:
+    resolution: {integrity: sha512-jrQkrLFRSv+t99BoDXUzrGCz0JKSXyfcXuQJ82MuFqIKS8OK1MolkY0O9NiPZ6aeTCa9RfMDTU2tsdgjxLO2Dw==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -3467,6 +3482,13 @@ snapshots:
   scheduler@0.23.2:
     dependencies:
       loose-envify: 1.4.0
+
+  scichart-react@0.1.9(react@18.3.1)(scichart@3.5.687):
+    dependencies:
+      react: 18.3.1
+      scichart: 3.5.687
+
+  scichart@3.5.687: {}
 
   semver@6.3.1: {}
 

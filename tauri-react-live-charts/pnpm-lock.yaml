@@ -20,9 +20,6 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
-      uplot:
-        specifier: ^1.6.31
-        version: 1.6.31
     devDependencies:
       '@eslint/js':
         specifier: ^9.12.0
@@ -1788,9 +1785,6 @@ packages:
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
-
-  uplot@1.6.31:
-    resolution: {integrity: sha512-sQZqSwVCbJGnFB4IQjQYopzj5CoTZJ4Br1fG/xdONimqgHmsacvCjNesdGDypNKFbrhLGIeshYhy89FxPF+H+w==}
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
@@ -3677,8 +3671,6 @@ snapshots:
       browserslist: 4.24.0
       escalade: 3.2.0
       picocolors: 1.1.0
-
-  uplot@1.6.31: {}
 
   uri-js@4.4.1:
     dependencies:

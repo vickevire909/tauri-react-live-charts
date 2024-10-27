@@ -1,4 +1,4 @@
-export interface DataPoint {
+export interface Data {
   timestamp: number;
-  value: number;
+  values: number[];
 }

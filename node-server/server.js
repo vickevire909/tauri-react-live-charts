@@ -58,17 +58,14 @@ function generateRandomValues(count) {
     const deleted = genarray.splice(count);
     console.log(`deleted ${deleted.length} generators`);
   }
-  const date = Date.now();
-  const arr = [];
+  const timestamp = Date.now();
+  const values = [];
   for (let i = 0; i < count; i++) {
     const gen = genarray[i];
 
-    arr.push({
-      timestamp: date,
-      value: gen.next(),
-    });
+    values.push(gen.next());
   }
-  return arr;
+  return { timestamp, values };
 }
 
 // Broadcast random values to all connected clients

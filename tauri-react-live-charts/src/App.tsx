@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useData } from './hooks/useData';
+import { LiveChart } from './components/ui/LiveChart';
 
 export const App = () => {
   const [count, setCount] = useState(1);
@@ -26,17 +27,19 @@ export const App = () => {
           Reset Series
         </button>
       </div>
-      <div>
-        {data &&
-          data.map((v, i) => (
-            <div key={i} className="min-w-96">
+      {data && (
+        <div>
+          {data.values.map((value, index) => (
+            <div key={index} className="min-w-96">
               <span>
-                <strong>{new Date(v.timestamp).toISOString()}</strong>
+                <strong>{new Date(data.timestamp).toISOString()}</strong>
               </span>
-              <span className="ml-4">{v.value}</span>
+              <span className="ml-4">{value}</span>
             </div>
           ))}
-      </div>
+          <LiveChart data={data} />
+        </div>
+      )}
     </div>
   );
 };

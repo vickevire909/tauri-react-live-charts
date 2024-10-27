@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { DataPoint } from '../types/types';
+import { Data } from '../types/types';
 
 interface UseDataProps {
   url: string;
@@ -7,14 +7,14 @@ interface UseDataProps {
 }
 
 export interface UseData {
-  data: DataPoint[] | null;
+  data: Data | null;
   isConnected: boolean;
   error: string | null;
 }
 
 export const useData = ({ url, count }: UseDataProps): UseData => {
   const [socket, setSocket] = useState<WebSocket | null>(null);
-  const [data, setValues] = useState<DataPoint[] | null>(null);
+  const [data, setValues] = useState<Data | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isConnected, setIsConnected] = useState<boolean>(false);
 
@@ -29,7 +29,7 @@ export const useData = ({ url, count }: UseDataProps): UseData => {
 
     // Handle incoming messages
     ws.onmessage = (event) => {
-      const data: DataPoint[] = JSON.parse(event.data);
+      const data: Data = JSON.parse(event.data);
       setValues(data);
     };
 
